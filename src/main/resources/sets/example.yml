@@ -1,0 +1,32 @@
+# 示例套装配置
+dragon_set:
+  name: "龙之套装"
+  pieces:
+    helmet: "§c[龙之头盔]"
+    chestplate: "§c[龙之胸甲]"
+    leggings: "§c[龙之护腿]"
+    boots: "§c[龙之靴子]"
+  attributes:
+    2:
+      - "物理伤害: 10"
+      - "暴击几率: 5%"
+    4:
+      - "物理伤害: 25"
+      - "暴击几率: 15%"
+      - "生命上限: 200"
+
+warrior_set:
+  name: "战士套装"
+  pieces:
+    helmet: "§6[战士头盔]"
+    chestplate: "§6[战士胸甲]"
+    leggings: "§6[战士护腿]"
+    boots: "§6[战士靴子]"
+  attributes:
+    2:
+      - "物理防御: 10"
+      - "生命上限: 100"
+    4:
+      - "物理防御: 25"
+      - "生命上限: 300"
+      - "生命恢复: 5"

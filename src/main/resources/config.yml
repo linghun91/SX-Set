@@ -1,0 +1,13 @@
+# SX-Set Configuration
+
+# 默认套装文件夹路径
+sets-folder: "sets"
+
+# 调试模式
+debug: false
+
+# 是否启用自动重载
+auto-reload: true
+
+# 套装检查间隔（秒）
+check-interval: 1

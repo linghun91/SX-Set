@@ -1,0 +1,8 @@
+name: sx-set
+version: '${project.version}'
+main: cn.i7mc.sxset.SXSet
+api-version: '1.20'
+author: Saga
+description: SX-Attribute扩展插件 - 装备套装系统
+depend: [SX-Attribute]
+commands: {}

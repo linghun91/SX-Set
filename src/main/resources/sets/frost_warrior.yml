@@ -1,0 +1,99 @@
+# 冰霜战士套装配置
+frost_warrior_set:
+  name: "冰霜战士套装"
+  pieces:
+    helmet:
+      Name: "&b[冰霜战士头盔]"
+      ID: 298
+      Lore:
+        - "&6品质等级: &b传说"
+        - "&6物品类型: 头盔"
+        - "&6限制等级: 30级"
+        - "&c生命上限: +100"
+        - "&c物理防御: +15"
+        - "&9冰霜抗性: +20%"
+        - "&r"
+        - "&7&o冰霜战士的头盔，蕴含着永恒冰霜的力量"
+        - "&b&o冰霜战士套装 (0/4)"
+      EnchantList:
+        - PROTECTION_ENVIRONMENTAL:3
+      ItemFlagList:
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+      Unbreakable: true
+
+    chestplate:
+      Name: "&b[冰霜战士胸甲]"
+      ID: 299
+      Lore:
+        - "&6品质等级: &b传说"
+        - "&6物品类型: 胸甲"
+        - "&6限制等级: 30级"
+        - "&c生命上限: +200"
+        - "&c物理防御: +25"
+        - "&9冰霜抗性: +30%"
+        - "&r"
+        - "&7&o冰霜战士的胸甲，能抵御最严酷的寒冰"
+        - "&b&o冰霜战士套装 (0/4)"
+      EnchantList:
+        - PROTECTION_ENVIRONMENTAL:3
+      ItemFlagList:
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+      Unbreakable: true
+
+    leggings:
+      Name: "&b[冰霜战士护腿]"
+      ID: 300
+      Lore:
+        - "&6品质等级: &b传说"
+        - "&6物品类型: 护腿"
+        - "&6限制等级: 30级"
+        - "&c生命上限: +150"
+        - "&c物理防御: +20"
+        - "&9冰霜抗性: +25%"
+        - "&r"
+        - "&7&o冰霜战士的护腿，让你在冰天雪地中自如行动"
+        - "&b&o冰霜战士套装 (0/4)"
+      EnchantList:
+        - PROTECTION_ENVIRONMENTAL:3
+      ItemFlagList:
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+      Unbreakable: true
+
+    boots:
+      Name: "&b[冰霜战士靴子]"
+      ID: 301
+      Lore:
+        - "&6品质等级: &b传说"
+        - "&6物品类型: 靴子"
+        - "&6限制等级: 30级"
+        - "&c生命上限: +100"
+        - "&c物理防御: +15"
+        - "&9冰霜抗性: +20%"
+        - "&d移速增幅: +15%"
+        - "&r"
+        - "&7&o冰霜战士的靴子，踏雪无痕"
+        - "&b&o冰霜战士套装 (0/4)"
+      EnchantList:
+        - PROTECTION_ENVIRONMENTAL:3
+        - DEPTH_STRIDER:3
+      ItemFlagList:
+        - HIDE_ATTRIBUTES
+        - HIDE_UNBREAKABLE
+      Unbreakable: true
+
+  attributes:
+    2:
+      - "生命上限: 200"
+      - "物理防御: 30"
+      - "冰霜抗性: 15%"
+      - "移速增幅: 10%"
+    4:
+      - "生命上限: 500"
+      - "物理防御: 60"
+      - "冰霜抗性: 40%"
+      - "移速增幅: 20%"
+      - "技能冷却: 15%"
+      - "特殊效果: 冰霜光环"
