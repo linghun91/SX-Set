@@ -32,6 +32,46 @@ SX-Set 是一个基于 SX-Attribute 的 Minecraft 服务器插件，用于实现
 4. **启动服务器**: 重启服务器或使用 `/reload` 命令重载插件
 5. **验证安装**: 检查控制台输出 "SX-Set 套装插件已启用！" 消息
 
+## 🔨 构建方法
+
+项目支持两种构建方式：**Gradle**（推荐）和 Maven。
+
+### 使用 Gradle 构建（推荐）
+
+```bash
+# 清理并构建项目
+./gradlew clean build
+
+# 只构建（不清理）
+./gradlew build
+
+# 查看所有可用任务
+./gradlew tasks
+
+# 生成源码和文档JAR
+./gradlew sourcesJar javadocJar
+```
+
+### 使用 Maven 构建
+
+```bash
+# 清理并构建项目
+mvn clean package
+
+# 只构建（不清理）
+mvn package
+
+# 跳过测试构建
+mvn package -DskipTests
+```
+
+### 构建输出
+
+- **Gradle**: 构建文件位于 `build/libs/` 目录
+- **Maven**: 构建文件位于 `target/` 目录
+
+> 💡 **提示**: 推荐使用 Gradle 构建，它提供更好的性能和现代化的构建体验。详细的迁移说明请参考 [GRADLE_MIGRATION.md](GRADLE_MIGRATION.md)。
+
 ## ⚙️ 配置说明
 
 ### 📁 文件结构
