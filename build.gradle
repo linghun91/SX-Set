@@ -1,0 +1,121 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'cn.i7mc'
+archivesBaseName = 'sx-set'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-parameters']
+}
+
+processResources {
+    filteringCharset = 'UTF-8'
+    filesMatching(['**/*.yml', '**/*.yaml']) {
+        expand(project.properties)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+}
+
+dependencies {
+    // Spigot API - 使用本地JAR文件
+    compileOnly files('libs/spigot-api-1.21.4-R0.1-SNAPSHOT.jar')
+    
+    // Lombok - 编译时注解处理器
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    
+    // SX-Attribute - 使用本地JAR文件
+    compileOnly files('libs/SX-Attribute.jar')
+    
+    // SX-Item - 使用本地JAR文件
+    compileOnly files('libs/SX-Item.jar')
+    
+    // ProtocolLib - 使用本地JAR文件
+    compileOnly files('libs/ProtocolLib.jar')
+}
+
+// Shadow JAR 配置
+shadowJar {
+    archiveClassifier = ''
+    
+    // 排除不需要的文件
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
+    
+    // 重定位包以避免冲突（如果需要的话）
+    // relocate 'com.example.library', 'cn.i7mc.sxset.libs.example'
+}
+
+// 确保build任务依赖shadowJar
+build {
+    dependsOn shadowJar
+}
+
+// 设置默认任务
+defaultTasks 'clean', 'build'
+
+// 自定义任务：清理并构建
+task cleanBuild {
+    group = 'build'
+    description = '清理并构建项目'
+    dependsOn 'clean', 'build'
+}
+
+// Java编译配置
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-parameters']
+}
+
+// 测试配置
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+// JAR文件配置
+jar {
+    enabled = false // 禁用普通JAR，只使用shadowJar
+}
+
+// 源码JAR（可选）
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+// Javadoc JAR（可选）
+task javadocJar(type: Jar) {
+    archiveClassifier = 'javadoc'
+    from javadoc
+}
+
+// 添加到artifacts
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}

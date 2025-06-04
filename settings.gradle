@@ -1,0 +1,9 @@
+rootProject.name = 'sx-set'
+
+// 启用功能预览
+enableFeaturePreview('TYPESAFE_PROJECT_ACCESSORS')
+
+// Gradle版本目录配置
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+}
