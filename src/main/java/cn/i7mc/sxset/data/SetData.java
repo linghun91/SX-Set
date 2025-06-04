@@ -41,13 +41,13 @@ public class SetData {
     public SetData(String setId, ConfigurationSection config) {
         // 初始化套装ID
         this.setId = setId;
-        
+
         // 设置套装名称，如果配置中未指定则使用套装ID作为名称
         this.name = config.getString("name", setId);
-        
+
         // 初始化存储套装件数属性的Map
         this.pieceAttributes = new HashMap<>();
-        
+
         // 初始化存储套装部件识别关键字的Map
         this.pieces = new HashMap<>();
 
@@ -74,5 +74,28 @@ public class SetData {
                 pieceAttributes.put(pieceCount, attributesSection.getStringList(key));
             }
         }
+    }
+
+    /**
+     * 获取套装的总件数
+     * 根据配置的部件数量动态计算
+     *
+     * @return 套装总件数
+     */
+    public int getTotalPieces() {
+        return pieces.size();
+    }
+
+    /**
+     * 获取套装的最大激活件数
+     * 返回配置中最高的件数要求
+     *
+     * @return 最大激活件数，如果没有配置则返回总件数
+     */
+    public int getMaxActivePieces() {
+        if (pieceAttributes.isEmpty()) {
+            return getTotalPieces();
+        }
+        return pieceAttributes.keySet().stream().mapToInt(Integer::intValue).max().orElse(getTotalPieces());
     }
 }
